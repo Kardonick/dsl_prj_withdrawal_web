@@ -1,7 +1,7 @@
 [
   {
     "id": "TXN-0001",
-    "fecha_hora": "2026-11-10 21:31:35",
+    "fecha_hora": "2026-11-11 00:44:37",
     "tipo": "ABONO",
     "monto": 100,
     "estado": "EXITOSA",
@@ -11,19 +11,99 @@
   },
   {
     "id": "TXN-0002",
-    "fecha_hora": "2026-11-10 21:37:42",
-    "tipo": "ABONO",
-    "monto": 100,
-    "estado": "EXITOSA",
-    "mensaje": "Abono procesado correctamente",
-    "saldo_posterior": 434.56,
+    "fecha_hora": "2026-11-11 00:44:40",
+    "tipo": "RETIRO",
+    "monto": -50,
+    "estado": "ERROR",
+    "mensaje": "no se pueden retirar cantidades negativas",
+    "saldo_posterior": 334.56,
     "titular": "Alice"
   },
   {
     "id": "TXN-0003",
-    "fecha_hora": "2026-11-10 21:37:55",
+    "fecha_hora": "2026-11-11 00:44:42",
     "tipo": "ABONO",
-    "monto": 100,
+    "monto": 200,
+    "estado": "EXITOSA",
+    "mensaje": "Abono procesado correctamente",
+    "saldo_posterior": 534.56,
+    "titular": "Alice"
+  },
+  {
+    "id": "TXN-0004",
+    "fecha_hora": "2026-11-11 00:44:43",
+    "tipo": "ABONO",
+    "monto": -50,
+    "estado": "ERROR",
+    "mensaje": "no se pueden abonar cantidades menores o iguales a cero",
+    "saldo_posterior": 534.56,
+    "titular": "Alice"
+  },
+  {
+    "id": "TXN-0005",
+    "fecha_hora": "2026-11-11 00:44:47",
+    "tipo": "RETIRO",
+    "monto": -500,
+    "estado": "ERROR",
+    "mensaje": "no se pueden retirar cantidades negativas",
+    "saldo_posterior": 534.56,
+    "titular": "Alice"
+  },
+  {
+    "id": "TXN-0006",
+    "fecha_hora": "2026-11-11 00:44:56",
+    "tipo": "RETIRO",
+    "monto": 200,
+    "estado": "EXITOSA",
+    "mensaje": "Retiro procesado correctamente",
+    "saldo_posterior": 334.55999999999995,
+    "titular": "Alice"
+  },
+  {
+    "id": "TXN-0007",
+    "fecha_hora": "2026-11-11 00:44:57",
+    "tipo": "RETIRO",
+    "monto": -50,
+    "estado": "ERROR",
+    "mensaje": "no se pueden retirar cantidades negativas",
+    "saldo_posterior": 334.55999999999995,
+    "titular": "Alice"
+  },
+  {
+    "id": "TXN-0008",
+    "fecha_hora": "2026-11-11 00:44:58",
+    "tipo": "ABONO",
+    "monto": -50,
+    "estado": "ERROR",
+    "mensaje": "no se pueden abonar cantidades menores o iguales a cero",
+    "saldo_posterior": 334.55999999999995,
+    "titular": "Alice"
+  },
+  {
+    "id": "TXN-0009",
+    "fecha_hora": "2026-11-11 00:45:21",
+    "tipo": "RETIRO",
+    "monto": -500,
+    "estado": "ERROR",
+    "mensaje": "no se pueden retirar cantidades negativas",
+    "saldo_posterior": 334.55999999999995,
+    "titular": "Alice"
+  },
+  {
+    "id": "TXN-0010",
+    "fecha_hora": "2026-11-11 00:45:25",
+    "tipo": "RETIRO",
+    "monto": 500,
+    "estado": "FALLO",
+    "mensaje": "Saldo insuficiente para completar la operacion",
+    "saldo_posterior": 334.55999999999995,
+    "titular": "Alice"
+  },
+  {
+    "id": "TXN-0011",
+    "fecha_hora": "2026-11-11 00:51:15",
+    "tipo": "ABONO",
+    "monto": 200,
     "estado": "EXITOSA",
     "mensaje": "Abono procesado correctamente",
     "saldo_posterior": 534.56,

@@ -57,7 +57,10 @@ body {
 }
 
 .brand-icon {
-    font-size: 2.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
 }
 
 .navbar h1 {
@@ -277,6 +280,10 @@ body {
     transform: translateY(1px);
 }
 
+.btn svg {
+    flex-shrink: 0;
+}
+
 .btn-primary {
     background-color: var(--color-primary);
     color: #ffffff;
@@ -319,7 +326,22 @@ body {
 }
 
 .alert-icon {
-    font-size: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.alert-success .alert-icon {
+    color: var(--color-success);
+}
+
+.alert-warning .alert-icon {
+    color: var(--color-warning);
+}
+
+.alert-danger .alert-icon {
+    color: var(--color-danger);
 }
 
 .alert-content p {
