@@ -202,23 +202,45 @@ La API se comunica exclusivamente en formato JSON (`Content-Type: application/js
 
 ## Pruebas Automatizadas desde CLI
 
-Para validar los contratos de la API mediante la consola sin abrir el navegador, puedes ejecutar comandos `curl`:
+Para validar los contratos de la API directamente desde la consola sin abrir el navegador, puedes ejecutar las siguientes pruebas según tu sistema operativo:
+
+En Windows (PowerShell con curl.exe --%)
+El operador --% (stop-parsing) evita que PowerShell interprete o modifique las comillas del payload JSON:
 
 ```bash
-# Validar abono válido
+# 1. Validar abono válido (Estado: EXITOSA)
+curl.exe --% -X POST http://localhost:8080/api/abonar -H "Content-Type: application/json" -d "{\"monto\": 100.0}"
+
+# 2. Validar rechazo por saldo insuficiente (Estado: FALLO)
+curl.exe --% -X POST http://localhost:8080/api/retirar -H "Content-Type: application/json" -d "{\"monto\": 5000.0}"
+
+# 3. Validar captura de monto negativo (Estado: ERROR)
+curl.exe --% -X POST http://localhost:8080/api/retirar -H "Content-Type: application/json" -d "{\"monto\": -40.0}"
+
+# 4. Consultar historial acumulado de auditoría
+curl.exe -X GET http://localhost:8080/api/transacciones
+```
+
+
+En Linux / macOS / Git Bash
+```bash
+# 1. Validar abono válido (Estado: EXITOSA)
 curl -X POST http://localhost:8080/api/abonar \
      -H "Content-Type: application/json" \
      -d '{"monto": 100.0}'
 
-# Validar rechazo por saldo insuficiente (FALLO)
+# 2. Validar rechazo por saldo insuficiente (Estado: FALLO)
 curl -X POST http://localhost:8080/api/retirar \
      -H "Content-Type: application/json" \
      -d '{"monto": 5000.0}'
 
-# Validar captura de monto negativo (ERROR)
+# 3. Validar captura de monto negativo (Estado: ERROR)
 curl -X POST http://localhost:8080/api/retirar \
      -H "Content-Type: application/json" \
      -d '{"monto": -40.0}'
+
+# 4. Consultar historial acumulado de auditoría
+curl -X GET http://localhost:8080/api/transacciones
 ```
 
 ---
