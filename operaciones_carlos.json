@@ -1,0 +1,12 @@
+[
+  {
+    "id": "TXN-0001",
+    "fecha_hora": "2026-11-10 01:53:11",
+    "tipo": "RETIRO",
+    "monto": 150,
+    "estado": "EXITOSA",
+    "mensaje": "Retiro procesado correctamente",
+    "saldo_posterior": 350,
+    "titular": "Carlos"
+  }
+]

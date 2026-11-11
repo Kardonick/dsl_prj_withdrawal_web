@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco FIIS - Portal Transaccional</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Encabezado Institucional -->
+        <header class="navbar">
+            <div class="brand">
+                <span class="brand-icon">🏦</span>
+                <div>
+                    <h1>Core Bancario FIIS</h1>
+                    <p class="subtitle">Módulo Transaccional Web • Acápite 4 (BDD / TDD)</p>
+                </div>
+            </div>
+            <div class="system-status">
+                <span class="status-indicator"></span>
+                <span>Servicio Activo</span>
+            </div>
+        </header>
+
+        <main class="dashboard-grid">
+            <!-- Tarjeta de Cuenta y Saldo -->
+            <section class="card balance-card">
+                <div class="card-header">
+                    <h2>Estado de Cuenta</h2>
+                    <span class="badge badge-neutral" id="accountType">Cuenta Ahorros</span>
+                </div>
+                <div class="card-body">
+                    <div class="user-meta">
+                        <span class="meta-label">Titular</span>
+                        <span class="meta-value" id="holderName">Cargando...</span>
+                    </div>
+                    <div class="balance-display">
+                        <span class="currency">€</span>
+                        <span class="balance-amount" id="currentBalance">0.00</span>
+                    </div>
+                    <p class="balance-legend">Saldo contable disponible en tiempo real</p>
+                </div>
+            </section>
+
+            <!-- Panel de Operaciones -->
+            <section class="card operations-card">
+                <div class="card-header">
+                    <h2>Operaciones Disponibles</h2>
+                </div>
+                <div class="card-body">
+                    <form id="transForm" onsubmit="return false;">
+                        <div class="input-group">
+                            <label for="amountInput">Monto de la Operación (€)</label>
+                            <div class="input-wrapper">
+                                <span class="input-prefix">€</span>
+                                <input type="number" id="amountInput" step="0.01" placeholder="0.00" required>
+                            </div>
+                        </div>
+
+                        <!-- Accesos rápidos -->
+                        <div class="quick-amounts">
+                            <button type="button" class="btn-chip" onclick="setQuickAmount(20)">+20</button>
+                            <button type="button" class="btn-chip" onclick="setQuickAmount(50)">+50</button>
+                            <button type="button" class="btn-chip" onclick="setQuickAmount(100)">+100</button>
+                            <button type="button" class="btn-chip" onclick="setQuickAmount(200)">+200</button>
+                            <button type="button" class="btn-chip btn-chip-danger" onclick="setQuickAmount(-50)">-50
+                                (Test)</button>
+                        </div>
+
+                        <!-- Botones de Acción -->
+                        <div class="action-buttons">
+                            <button type="button" class="btn btn-primary" id="btnDeposit"
+                                onclick="ejecutarOperacion('abonar')">
+                                <span>➕</span> Abonar Efectivo
+                            </button>
+                            <button type="button" class="btn btn-secondary" id="btnWithdraw"
+                                onclick="ejecutarOperacion('retirar')">
+                                <span>➖</span> Retirar Efectivo
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Notificaciones de Resultado -->
+                    <div id="alertFeedback" class="alert d-none">
+                        <span id="alertIcon" class="alert-icon"></span>
+                        <div class="alert-content">
+                            <strong id="alertTitle"></strong>
+                            <p id="alertMessage"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tabla de Auditoría e Historial de Transacciones -->
+            <section class="card history-card">
+                <div class="card-header header-with-action">
+                    <div>
+                        <h2>Registro de Auditoría (transacciones.json)</h2>
+                        <p class="subtitle">Persistencia inmutable y clasificación de estados US-04</p>
+                    </div>
+                    <button class="btn btn-outline" onclick="cargarHistorial()">
+                        <span>🔄</span> Refrescar
+                    </button>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Fecha y Hora</th>
+                                    <th>Operación</th>
+                                    <th>Monto</th>
+                                    <th>Estado</th>
+                                    <th>Saldo Resultante</th>
+                                    <th>Detalle Contable</th>
+                                </tr>
+                            </thead>
+                            <tbody id="txTableBody">
+                                <tr>
+                                    <td colspan="7" class="text-center py-4 text-muted">Consultando registros...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
