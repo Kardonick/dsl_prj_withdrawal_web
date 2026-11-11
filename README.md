@@ -70,7 +70,7 @@ La solución adopta una **Arquitectura en Capas (Layered Architecture)** con sep
 1. **Capa de Dominio (`headers/`):** Contiene la lógica nuclear bancaria inmutable (`Cuenta` y `Transaccion`), garantizando la regla de *todo o nada* (atomicidad) y el cálculo de balances.
 2. **Capa de Pruebas BDD (`headers/test_bdd.go`):** Emula los pasos declarativos Given-When-Then de las especificaciones Gherkin, validando integridad sintáctica (`json.Valid`) y aritmética flotante IEEE 754 mediante tolerancia absoluta ($\varepsilon = 0.001$).
 3. **Capa de Controladores HTTP (`handlers/`):** Expone los endpoints de la API, deserializa los payloads JSON, gestiona bloqueos de concurrencia mediante `sync.Mutex` y orquesta la persistencia.
-4. **Capa de Presentación Web (`static/`):** Dashboard interactivo construido con HTML5 semántico, CSS responsivo moderno (variables CSS) y JavaScript Vanilla asíncrono con la Fetch API.
+4. **Capa de Presentación Web (`static/`):** Dashboard interactivo consolidado en `index.html` con HTML5 semántico y lógica cliente asíncrona (Fetch API), estilizado mediante variables y componentes adaptables en `styles.css`.
 
 ---
 
@@ -91,9 +91,8 @@ prj_withdrawal/
 │   ├── class.go               # Modelos Cuenta y Transacción con serializador JSON
 │   └── test_bdd.go            # Arnés BDD ejecutable y validadores de esquema
 └── static/                    # Frontend de la aplicación Web
-    ├── index.html             # Dashboard y formularios de operaciones
-    ├── styles.css             # Hoja de estilos moderna y adaptable
-    └── app.js                 # Integración asíncrona (Fetch API) y reactividad
+    ├── index.html             # Dashboard, formularios de operaciones y lógica asíncrona (Fetch API)
+    └── styles.css             # Hoja de estilos moderna y adaptable
 ```
 
 ---
@@ -125,7 +124,7 @@ Toda operación bancaria evaluada por el sistema clasifica de forma unívoca en 
 
 ---
 
-## 🔌 Documentación de la API RESTful
+## Documentación de la API RESTful
 
 La API se comunica exclusivamente en formato JSON (`Content-Type: application/json`).
 
@@ -204,8 +203,9 @@ La API se comunica exclusivamente en formato JSON (`Content-Type: application/js
 
 Para validar los contratos de la API directamente desde la consola sin abrir el navegador, puedes ejecutar las siguientes pruebas según tu sistema operativo:
 
-En Windows (PowerShell con curl.exe --%)
-El operador --% (stop-parsing) evita que PowerShell interprete o modifique las comillas del payload JSON:
+### En Windows (PowerShell con `curl.exe --%`)
+
+El operador `--%` (*stop-parsing*) evita que PowerShell interprete o modifique las comillas del payload JSON:
 
 ```bash
 # 1. Validar abono válido (Estado: EXITOSA)
@@ -221,8 +221,8 @@ curl.exe --% -X POST http://localhost:8080/api/retirar -H "Content-Type: applica
 curl.exe -X GET http://localhost:8080/api/transacciones
 ```
 
+### En Linux / macOS / Git Bash
 
-En Linux / macOS / Git Bash
 ```bash
 # 1. Validar abono válido (Estado: EXITOSA)
 curl -X POST http://localhost:8080/api/abonar \
