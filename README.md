@@ -14,7 +14,7 @@ Sistema bancario transaccional desarrollado en **Golang** bajo un enfoque riguro
 * **Institución:** Universidad Nacional de Ingeniería (UNI)
 * **Facultad:** Facultad de Ingeniería Industrial y de Sistemas (FIIS)
 * **Escuela:** Escuela Profesional de Ingeniería de Software
-* **Asignatura:** Lenguajes de Dominio Específico / Metodologías de Desarrollo de Software
+* **Asignatura:** Lenguajes de Dominio Específico (DSL)
 * **Catedrático:** Ing. Jorge Medianero Acosta
 * **Autor:** Dair David Ramos Jacay
 * **Código de Estudiante:** `20232156D`

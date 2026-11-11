@@ -1,7 +1,7 @@
 /*
 Source file: handlers/bank_handler.go
 Módulo: Controladores HTTP y API RESTful (Acápite 4 - Refactorización Web)
-Curso: Metodologías de Desarrollo de Software / Arquitectura de Software
+Curso: Lenguajes de Dominio Específico (DSL)
 Fecha: nov-2026
 Autor: J.Medianero.A / Refactorización Web
 */

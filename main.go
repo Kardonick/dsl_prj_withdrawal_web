@@ -1,6 +1,6 @@
 /*
 Source file: main.go [Servidor Web HTTP Transaccional - Acápite 4]
-Curso: Metodologías de Desarrollo de Software / Arquitectura de Software
+Curso: Lenguajes de Dominio Específico (DSL)
 Fecha: nov-2026
 Autor: J.Medianero.A / Refactorización Web
 */

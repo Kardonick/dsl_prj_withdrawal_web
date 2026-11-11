@@ -1,7 +1,7 @@
 /*
 Source file: test_bdd.go
 Módulo: Harness de Pruebas BDD / TDD con Validación de Integridad y Logs JSON (US-04)
-Curso: Metodologías de Desarrollo de Software / Arquitectura de Software
+Curso: Lenguajes de Dominio Específico (DSL)
 Fecha: nov-2026
 Autor: J.Medianero.A / Incremento US-04 (Auditoría Contable y JSON)
 */

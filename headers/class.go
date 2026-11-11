@@ -1,7 +1,7 @@
 /*
 Source file: class.go
 Módulo: Dominio del Negocio Bancario (Cuenta y Transacción con Auditoría JSON)
-Curso: Metodologías de Desarrollo de Software / Arquitectura de Software
+Curso: Lenguajes de Dominio Específico (DSL)
 Fecha: nov-2026
 Autor: J.Medianero.A (adaptado a Go) / Incremento US-04 (Integridad y Logging JSON)
 */
